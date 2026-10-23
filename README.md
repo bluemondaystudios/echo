@@ -9,11 +9,30 @@ It's a static site written in plain HTML, CSS and JavaScript, with no build step
 ## Structure
 
 ```
-index.html        page content and SEO metadata
-css/styles.css    design: dark beige, navy and leather palette
-js/main.js        mobile nav, scroll reveal, active-section highlight
-assets/img/       optimised photos (JPG + WebP) and social share image
+index.html          page content, meta tags and JSON-LD structured data
+404.html            custom not-found page (noindex)
+css/styles.css      design, including self-hosted @font-face rules
+js/main.js          mobile nav, scroll reveal, active-section highlight
+assets/img/         optimised photos (600/800/1000px, JPG + WebP) and share image
+assets/fonts/       self-hosted Fraunces, Inter and JetBrains Mono (woff2, OFL)
+assets/icons/       favicon SVG, PNG app icons, Apple touch icon
+favicon.ico         legacy favicon
+robots.txt          crawler rules + sitemap location
+sitemap.xml         sitemap with image entries
+site.webmanifest    app name, colours and icons
+llms.txt            plain-text profile summary for AI search tools
 ```
+
+## SEO checklist
+
+- Update `dateModified` (JSON-LD) and `<lastmod>` (sitemap.xml) whenever content changes.
+- Google Search Console: add `edwardmawela.tech` as a **Domain** property, verify with
+  the DNS TXT record it gives you, then submit `https://edwardmawela.tech/sitemap.xml`.
+- Bing Webmaster Tools: import the site from Search Console.
+- Validate structured data at https://search.google.com/test/rich-results and
+  share previews at https://www.linkedin.com/post-inspector/.
+- Link to https://edwardmawela.tech from LinkedIn (Contact info → Website), GitHub
+  profile and the Blue Monday Studios site.
 
 ## Run locally
 
