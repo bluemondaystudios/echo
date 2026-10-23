@@ -25,12 +25,12 @@ python3 -m http.server 8000
 
 ## Deploy
 
-Live at **https://www.edwardmawela.tech**
+Live at **https://edwardmawela.tech**
 
 `.github/workflows/pages.yml` deploys to GitHub Pages on every push to `main`
 (or run it manually from the Actions tab). One-time setup: in
 **Settings → Pages → Build and deployment → Source**, choose **GitHub Actions**,
-and set **Custom domain** to `www.edwardmawela.tech` with **Enforce HTTPS** on.
+and set **Custom domain** to `edwardmawela.tech` with **Enforce HTTPS** on.
 
 DNS records at the domain registrar:
 
