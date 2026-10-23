@@ -1,14 +1,14 @@
 /* ==========================================================================
    Edward Mawela | profile site
-   Palette pulled from the photos: dark beige base, navy suit,
+   Palette pulled from the photos: very light beige base, navy suit,
    sky-blue shirt and tan-brown leather.
    ========================================================================== */
 
 :root {
-  --bg: #bdae93;          /* dark beige */
-  --bg-alt: #b1a185;      /* deeper beige for alternating sections */
-  --surface: #cdbfa5;     /* cards */
-  --surface-hi: #d9cdb6;  /* raised / hover */
+  --bg: #f4eee3;          /* very light beige */
+  --bg-alt: #ebe2d2;      /* slightly deeper beige for alternating sections */
+  --surface: #fbf8f2;     /* cards */
+  --surface-hi: #fffdf9;  /* raised / hover */
   --ink: #16213a;         /* navy text */
   --ink-soft: #3a4257;
   --ink-muted: #5a5d68;
@@ -16,8 +16,8 @@
   --navy-deep: #121c33;
   --sky: #a7c3e8;         /* shirt blue */
   --leather: #6b4a33;     /* shoes */
-  --line: rgba(22, 33, 58, 0.16);
-  --line-strong: rgba(22, 33, 58, 0.32);
+  --line: rgba(22, 33, 58, 0.12);
+  --line-strong: rgba(22, 33, 58, 0.26);
 
   --font-display: "Fraunces", Georgia, "Times New Roman", serif;
   --font-body: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
@@ -76,7 +76,7 @@ code { font-family: var(--font-mono); font-size: 0.9em; }
    -------------------------------------------------------------------------- */
 .site-header {
   position: sticky; top: 0; z-index: 50;
-  background: rgba(189, 174, 147, 0.86);
+  background: rgba(244, 238, 227, 0.88);
   backdrop-filter: saturate(140%) blur(10px);
   -webkit-backdrop-filter: saturate(140%) blur(10px);
   border-bottom: 1px solid transparent;
