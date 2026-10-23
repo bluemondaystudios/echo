@@ -1,0 +1,29 @@
+# Edward Mawela
+
+> Software developer in South Africa. Harvard CS50x certified, founder of Blue Monday Studios, with 10+ client websites designed, built and deployed. Open to software developer roles in Johannesburg, Pretoria, Durban and Cape Town (on-site, hybrid or remote).
+
+## Profile
+
+- [Profile website](https://edwardmawela.tech/): approach, CS50x breakdown, credentials, work and contact details
+- Approach: fundamentals first, respect for abstraction, decomposition of problems, shipping and owning software in production
+
+## Credentials
+
+- CS50x: CS50's Introduction to Computer Science, Harvard University. C, memory management, algorithms, data structures, Python, SQL, HTML/CSS/JavaScript, Flask, final project
+- Higher Certificate in Digital Entrepreneurship, University of Johannesburg (in collaboration with FNB)
+
+## Work
+
+- [Blue Monday Studios](https://www.bluemondaystudios.co.za): founder. Web design and development studio; 10+ client websites from requirements to deployment and maintenance
+
+## Skills
+
+- Languages: C, Python, JavaScript, SQL, HTML, CSS
+- Tools: Flask, SQLite, Git and GitHub, Linux command line, Valgrind
+- Delivery: responsive design, web performance, SEO, hosting and DNS
+
+## Contact
+
+- Email: work@edwardmawela.tech
+- Phone: +27 66 399 5798
+- [LinkedIn](https://www.linkedin.com/in/edward-mawela-b60b1734b)
