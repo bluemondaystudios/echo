@@ -25,10 +25,13 @@ python3 -m http.server 8000
 
 ## Deploy
 
-Any static host works: GitHub Pages (serve from the repo root), Netlify,
-Vercel or Cloudflare Pages.
+Live at **https://bluemondaystudios.github.io/echo/**
+
+`.github/workflows/pages.yml` deploys to GitHub Pages on every push to `main`
+(or run it manually from the Actions tab). One-time setup: in
+**Settings → Pages → Build and deployment → Source**, choose **GitHub Actions**.
 
 ## To do
 
 - Add direct contact details (email, LinkedIn, phone) in the `#contact` section of `index.html`.
-- Once a domain is live, set absolute URLs for `og:image` and add a `<link rel="canonical">`.
+- If you move to a custom domain, update the `github.io` URLs in `index.html` (canonical, `og:url`, `og:image`, JSON-LD).
