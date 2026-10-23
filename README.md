@@ -25,13 +25,23 @@ python3 -m http.server 8000
 
 ## Deploy
 
-Live at **https://bluemondaystudios.github.io/echo/**
+Live at **https://edwardmawela.tech**
 
 `.github/workflows/pages.yml` deploys to GitHub Pages on every push to `main`
 (or run it manually from the Actions tab). One-time setup: in
-**Settings → Pages → Build and deployment → Source**, choose **GitHub Actions**.
+**Settings → Pages → Build and deployment → Source**, choose **GitHub Actions**,
+and set **Custom domain** to `edwardmawela.tech` with **Enforce HTTPS** on.
+
+DNS records at the domain registrar:
+
+| Type  | Host | Value                                   |
+|-------|------|-----------------------------------------|
+| A     | @    | 185.199.108.153                         |
+| A     | @    | 185.199.109.153                         |
+| A     | @    | 185.199.110.153                         |
+| A     | @    | 185.199.111.153                         |
+| CNAME | www  | bluemondaystudios.github.io             |
 
 ## To do
 
 - Add direct contact details (email, LinkedIn, phone) in the `#contact` section of `index.html`.
-- If you move to a custom domain, update the `github.io` URLs in `index.html` (canonical, `og:url`, `og:image`, JSON-LD).
