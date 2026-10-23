@@ -41,7 +41,3 @@ DNS records at the domain registrar:
 | A     | @    | 185.199.110.153                         |
 | A     | @    | 185.199.111.153                         |
 | CNAME | www  | bluemondaystudios.github.io             |
-
-## To do
-
-- Add direct contact details (email, LinkedIn, phone) in the `#contact` section of `index.html`.
