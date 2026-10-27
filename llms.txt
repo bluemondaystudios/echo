@@ -18,8 +18,8 @@
 
 ## Skills
 
-- Languages: C, Python, JavaScript, SQL, HTML, CSS
-- Tools: Flask, SQLite, Git and GitHub, Linux command line, Valgrind
+- Languages: C, C#, Python, JavaScript, SQL, HTML, CSS
+- Frameworks and tools: .NET, Flask, SQLite, Git and GitHub, Linux command line, Valgrind
 - Delivery: responsive design, web performance, SEO, hosting and DNS
 
 ## Contact
