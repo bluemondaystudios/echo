@@ -260,6 +260,41 @@
       });
       photo.addEventListener("pointerleave", function () { inner.style.transform = ""; });
     }
+
+    // Cards tilt slightly towards the cursor
+    if (!reduceMotion) {
+      document.querySelectorAll(".principle, .card").forEach(function (card) {
+        card.addEventListener("pointermove", function (e) {
+          var r = card.getBoundingClientRect();
+          var px = (e.clientX - r.left) / r.width - 0.5;
+          var py = (e.clientY - r.top) / r.height - 0.5;
+          card.style.transform = "translateY(-3px) rotateX(" + (-py * 5).toFixed(2) + "deg) rotateY(" + (px * 5).toFixed(2) + "deg)";
+        });
+        card.addEventListener("pointerleave", function () { card.style.transform = ""; });
+      });
+    }
+  }
+
+  // ------------------------------------------------------------------
+  // 3D decomposition cube: load its script only when the section is near
+  // ------------------------------------------------------------------
+  var stage = document.querySelector(".decompose-stage");
+  if (stage) {
+    var conn = navigator.connection || {};
+    if (conn.saveData || !window.WebGLRenderingContext || !("IntersectionObserver" in window)) {
+      stage.classList.add("no-3d");
+    } else {
+      var loader = new IntersectionObserver(function (entries) {
+        if (!entries[0].isIntersecting) return;
+        loader.disconnect();
+        var script = document.createElement("script");
+        script.src = "js/cube.js";
+        script.async = true;
+        script.onerror = function () { stage.classList.add("no-3d"); };
+        document.body.appendChild(script);
+      }, { rootMargin: "600px 0px" });
+      loader.observe(stage);
+    }
   }
 
   // ------------------------------------------------------------------
