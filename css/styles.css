@@ -67,6 +67,9 @@
   --brand: #1c2e57;
   --spot: rgba(167, 195, 232, 0.35);
   --photo-filter: none;
+  --cube-base: #1c2e57;
+  --cube-solved: #8fb0dc;
+  --cube-edge: #f4eee3;
   --shadow: 0 1px 2px rgba(18, 28, 51, 0.08), 0 14px 36px -14px rgba(18, 28, 51, 0.3);
   --shadow-lg: 0 2px 4px rgba(18, 28, 51, 0.06), 0 30px 60px -24px rgba(18, 28, 51, 0.4);
 
@@ -109,6 +112,9 @@
   --code-bg: #0c1220;
   --spot: rgba(167, 195, 232, 0.14);
   --photo-filter: brightness(0.92) saturate(0.95);
+  --cube-base: #2d4677;
+  --cube-solved: #a7c3e8;
+  --cube-edge: #f1e9da;
   --shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 14px 36px -14px rgba(0, 0, 0, 0.7);
   --shadow-lg: 0 2px 4px rgba(0, 0, 0, 0.3), 0 30px 60px -24px rgba(0, 0, 0, 0.8);
   color-scheme: dark;
@@ -426,7 +432,54 @@ button { font: inherit; color: inherit; }
 @media (hover: hover) { .spotlight:hover::before { opacity: 1; } }
 
 /* Approach */
-.principles { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; }
+.approach-intro {
+  display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+  gap: clamp(24px, 4vw, 56px); align-items: center;
+  margin-bottom: clamp(36px, 5vw, 56px);
+}
+.approach-intro .section-head { margin-bottom: 0; }
+.stage-hint { font-size: 12.5px; color: var(--ink-muted); margin: 8px 0 0; letter-spacing: 0.04em; }
+
+.decompose-stage { position: relative; margin: 0; width: 100%; max-width: 480px; justify-self: center; }
+.decompose-stage::before { /* soft glow behind the cube */
+  content: ""; position: absolute; inset: 8% 8% 20%; border-radius: 50%; z-index: 0;
+  background: radial-gradient(closest-side, var(--glow-a), transparent);
+}
+.decompose-stage::after { /* floor shadow */
+  content: ""; position: absolute; left: 22%; right: 22%; top: 76%; height: 8%; z-index: 0;
+  border-radius: 50%; background: radial-gradient(closest-side, rgba(18, 28, 51, 0.22), transparent);
+}
+:root[data-theme="dark"] .decompose-stage::after { background: radial-gradient(closest-side, rgba(0, 0, 0, 0.55), transparent); }
+.decompose-canvas {
+  position: relative; z-index: 1; display: block; width: 100%; aspect-ratio: 1 / 1;
+  opacity: 0; transition: opacity 0.8s ease; touch-action: pan-y;
+}
+.decompose-stage.ready .decompose-canvas { opacity: 1; }
+
+.decompose-steps {
+  position: relative; z-index: 1; list-style: none;
+  display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 8px; margin-top: 4px;
+}
+.decompose-steps li {
+  display: flex; flex-direction: column; gap: 2px;
+  padding: 8px 10px; border-radius: 10px; border: 1px solid var(--line);
+  font-size: 12.5px; line-height: 1.35; color: var(--ink-muted);
+  background: color-mix(in srgb, var(--surface) 60%, transparent);
+  transition: color 0.3s ease, border-color 0.3s ease, background-color 0.3s ease, transform 0.3s var(--ease-out);
+}
+.decompose-steps li .mono { font-size: 13px; font-weight: 500; color: var(--leather); }
+.decompose-steps li.active { color: var(--ink); border-color: var(--line-strong); background: var(--surface); transform: translateY(-2px); }
+
+/* Without WebGL (or on data saver) the steps tell the story on their own */
+.decompose-stage.no-3d::before,
+.decompose-stage.no-3d::after,
+.decompose-stage.no-3d .decompose-canvas { display: none; }
+.decompose-stage.no-3d .decompose-steps { margin-top: 0; }
+.decompose-stage.no-3d .decompose-steps li { color: var(--ink); }
+.approach-intro:has(.no-3d) .stage-hint { display: none; }
+
+.principles { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; perspective: 1400px; }
+.cards { perspective: 1400px; }
 .principle {
   padding: 28px; border-radius: var(--radius);
   background: var(--surface); border: 1px solid var(--line);
@@ -675,6 +728,8 @@ button { font: inherit; color: inherit; }
   .stat:nth-child(even) { padding-left: 16px; border-left: 1px solid var(--line); }
 
   .principles { grid-template-columns: 1fr; }
+  .approach-intro { grid-template-columns: 1fr; }
+  .decompose-stage { max-width: 380px; }
   .contact-list { grid-template-columns: 1fr; }
   .cs50-layout { grid-template-columns: 1fr; }
   .cs50-aside { position: static; }
@@ -697,6 +752,7 @@ button { font: inherit; color: inherit; }
   .hero-actions .btn,
   .contact-actions .btn { width: 100%; }
   .principle, .card { padding: 22px; }
+  .decompose-steps { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .code-card pre { font-size: 12.5px; padding: 18px; }
   .big-number { flex-direction: column; gap: 6px; }
   .hero-photo::before { inset: 10px -8px -10px 8px; }
